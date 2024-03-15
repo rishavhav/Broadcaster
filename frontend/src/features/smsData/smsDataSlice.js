@@ -1,13 +1,16 @@
-import { configureSlice, createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit"
 
-export const smsDataSlice = createSlice({
-    name: 'smsData',
-    initialState: {
-        list: []
+const smsDataSlice = createSlice({
+  name: "smsData",
+  initialState: {
+    list: [],
+  },
+  reducers: {
+    addData: (state, action) => {
+      state.list.push(action.payload)
     },
-    reducers: {
-        addData: (state, action) => {
-            state.list.push(action.payload)
-        }
-    }
+  },
 })
+
+export default smsDataSlice.reducer
+export const { addData } = smsDataSlice.actions
